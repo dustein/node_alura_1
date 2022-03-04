@@ -16,11 +16,11 @@ function trataErro(erro) {
     throw new Error(chalk.red(erro.code, ' -> arquivo não encontrado'));
 }
 
-async function pegaArquivo(caminhoDoArquivo) {
+async function pegaArquivo(caminhoDeArquivo) {
     const encoding = 'utf-8';
     
     try {
-        const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
+        const texto = await fs.promises.readFile(caminhoDeArquivo, encoding);
         return extraiLinks(texto);
     } catch (erro) {
         trataErro(erro);
