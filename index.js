@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 function extraiLinks(texto) {
-    const regex = "";
+    const regex = /\[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)/gm;
     const arrayResultados = [];
     let temp;
     while((temp = regex.exec(texto)) !== null) {
@@ -16,3 +16,15 @@ function trataErro(erro) {
     throw new Error(chalk.red(erro.code, ' -> arquivo não encontrado'));
 }
 
+async function pegaArquivo(caminhoDoArquivo) {
+    const encoding = 'utf-8';
+    
+    try {
+        const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
+        return extraiLinks(texto);
+    } catch (erro) {
+        trataErro(erro);
+    }
+}
+
+export { pegaArquivo };
