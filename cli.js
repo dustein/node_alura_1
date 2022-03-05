@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import { pegaArquivo } from './index.js';
 import { validaURLs } from './http-validacao.js';
 
+
 const caminho = process.argv;
 
 async function processaTexto(caminhoDeArquivo) {
