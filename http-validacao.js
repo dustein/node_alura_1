@@ -1,9 +1,10 @@
-function geraArrayDeURLs(arrayDeLinks) {
-    return arrayDeLinks.map(link => Object.values(link))
+function geraArrayDeURLs(arrayLinks) {
+    console.log(arrayLinks.map(objetoLink => Object.values(objetoLink).join()))
+    return arrayLinks.map(objetoLink => Object.values(objetoLink).join());
 }
 
 function validaURLs(arrayLinks) {
-    return geraArrayDeURLs(arrayLinks);
+    return geraArrayDeURLs(arrayLinks)
 };
 
 export { validaURLs };
