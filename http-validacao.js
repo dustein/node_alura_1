@@ -8,7 +8,8 @@ async function checkStatus(arrayURLs) {
     try {
         const arrayStatus = await Promise.all(arrayURLs.map(async (url) => {
             const resp = await fetch(url)
-            return resp.status;
+            console.log(`${resp.status} - ${resp.statusText}`);
+            return `${resp.status} - ${resp.statusText}`;
         }))
         return arrayStatus
     } catch (erro) {
